@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>米家微波炉</title>
+        <link rel="icon" type="image/x-icon" href="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f7dcbb8c268574041ce0b4b98e591cf1.jpg?thumb=1&w=40&h=40&f=webp&q=90" />
+        <script src="../../assets/font/icon/iconfont.js"></script>
+        <link rel="stylesheet" href="../../assets/css/base.css" />
+        <link rel="stylesheet" href="../../assets/font/led/led.css" />
+        <link rel="stylesheet" href="MiMicrowaveOven.css" />
+    </head>
+
+    <body>
+        <div class="machine" v-cloak id="app">
+            <div class="box">
+                <div class="out-line border-radius-left">
+                    <div class="box-left border-radius-left">
+                        <div class="grid-top grid"></div>
+                        <div class="grid-1 grid"></div>
+                        <div class="grid-2 grid"></div>
+                        <div class="grid-3 grid"></div>
+                        <div class="grid-4 grid"></div>
+                        <div class="fire" v-show="time > 0"></div>
+                    </div>
+                </div>
+                <div class="out-line border-radius-right">
+                    <div class="box-right border-radius-right">
+                        <div class="led-info">
+                            <div class="time">
+                                <span class="icon-led">{{numArr[0]}}</span>
+                                <span class="icon-led">{{numArr[1]}}</span>
+                                <span class="icon-led line">:</span>
+                                <span class="icon-led">{{numArr[2]}}</span>
+                                <span class="icon-led">{{numArr[3]}}</span>
+                            </div>
+                            <p class="mode">加热</p>
+                            <svg class="icon-font wifi" aria-hidden="true">
+                                <use xlink:href="#icon-wifi"></use>
+                            </svg>
+                        </div>
+                        <div class="action-mode">
+                            <span class="active">功能</span>
+                            <span>火力</span>
+                        </div>
+                        <div class="action-time">
+                            <div class="tips">
+                                <span>开始</span>
+                                / 暂停
+                            </div>
+                            <div class="action-time-set">
+                                <div class="line-content">
+                                    <div class="line"></div>
+                                </div>
+                                <div class="add-subtract">
+                                    <span>-</span>
+                                    <span>+</span>
+                                </div>
+                                <div class="btn"></div>
+                            </div>
+                            <div class="action-open"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <div class="floor-1">
+                    <div class="floor-1-left"></div>
+                    <div class="floor-1-mid"></div>
+                    <div class="floor-1-right"></div>
+                </div>
+                <div class="floor-2">
+                    <div class="floor-2-footer"></div>
+                    <div class="floor-2-mid"></div>
+                    <div class="floor-2-footer floor-2-right"></div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    //时长（秒）
+                    time: 30,
+                    //计时器
+                    heatTimer: null,
+                },
+                computed: {
+                    numArr() {
+                        let minutes = Math.floor(this.time / 60);
+                        let seconds = this.time % 60;
+                        let value = String(minutes).padStart(2, "0").concat(String(seconds).padStart(2, "0"));
+                        return value.split("");
+                    },
+                },
+                mounted() {
+                    this.setTimer();
+                },
+                methods: {
+                    setTime(value) {
+                        if (value > 5999) value = 5999;
+
+                        this.clearTimer();
+                        this.time = value;
+                        this.setTimer();
+                    },
+                    setTimer() {
+                        if (this.time > 0) {
+                            let that = this;
+                            this.heatTimer = setInterval(() => {
+                                if (that.time == 0) {
+                                    that.clearTimer();
+                                } else that.time--;
+                            }, 1000);
+                        }
+                    },
+                    clearTimer() {
+                        if (this.heatTimer == null) return;
+
+                        clearInterval(this.heatTimer);
+                        this.heatTimer = null;
+                    },
+                },
+                beforeDestroy() {
+                    this.heatTimer && clearInterval(this.heatTimer);
+                },
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+[v-cloak] {
+    display: none;
+}
+body {
+    background-color: #ffffff;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+p {
+    margin: 0;
+}
+.icon-font{
+    fill: currentColor;
+    width: 1em;
+}
+.machine {
+    margin-top: 100px;
+}
+.box {
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+.out-line {
+    background: #ffffff;
+    float: left;
+}

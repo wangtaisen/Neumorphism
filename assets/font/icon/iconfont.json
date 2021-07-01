@@ -1,0 +1,51 @@
+{
+  "id": "2627701",
+  "name": "新拟物",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "新拟物",
+  "glyphs": [
+    {
+      "icon_id": "6988435",
+      "name": "wifi",
+      "font_class": "wifi",
+      "unicode": "ec3e",
+      "unicode_decimal": 60478
+    },
+    {
+      "icon_id": "21902599",
+      "name": "certificates",
+      "font_class": "certificates",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "22407515",
+      "name": "五角星",
+      "font_class": "wujiaoxing11",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "22325847",
+      "name": "限量秒杀",
+      "font_class": "xianliangmiaosha",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "5482457",
+      "name": "五角星",
+      "font_class": "wujiaoxing",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "18968955",
+      "name": "五角星",
+      "font_class": "wujiaoxing1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
