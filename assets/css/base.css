@@ -1,28 +1,28 @@
 [v-cloak] {
-    display: none;
+  display: none;
 }
 body {
-    background-color: #ffffff;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 p {
-    margin: 0;
+  margin: 0;
 }
-.icon-font{
-    fill: currentColor;
-    width: 1em;
+.icon-font {
+  fill: currentColor;
+  width: 1em;
 }
 .machine {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 .box {
-    clear: both;
-    display: block;
-    overflow: hidden;
+  clear: both;
+  display: block;
+  overflow: hidden;
 }
 .out-line {
-    background: #ffffff;
-    float: left;
+  background: #ffffff;
+  float: left;
 }
